@@ -142,13 +142,38 @@ const asif = new gost({
 // }});
 
 
-function bongobdRead(asif){
-  gost.find(function(err, data){
+ async function bongobdRead(data){
+  var x;
+  x = await gost.find(function(err, data){
     if(err){
     console.log("Its Error");
     }
-    return asif;
-  })
+    //console.log(data)
+    data;
+
+  }).then(function (doc) {
+  return doc;
+});
+// var z;
+//  console.log(z);
+// console.log(x);
+   return x;
+
+
 
 }
-console.log(asif,anik,ovi,shekha,pavel,);
+
+async function xyz(){
+
+
+
+
+var y= await bongobdRead();
+console.log(y);
+
+
+
+
+}
+
+xyz();

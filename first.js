@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/Uni_talks', {useNewUrlParser: true, useUnifiedTopology: true});
 
-const post = mongoose.model('post', {
+const gost = mongoose.model('gost', {
 
   pName:String,
   pPic:String,
@@ -12,13 +12,9 @@ const post = mongoose.model('post', {
   Like:Number
 
 
-
-
-
-
  });
 
-const asif = new post({
+const asif = new gost({
    pName: 'Salman Asif',
    pPic:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDgTNKTeE985pM29w_MVlLv6Q6zXuK8qHKq4O0pcB_aWH4JbQV',
 
@@ -33,7 +29,7 @@ const asif = new post({
 
 
  });
- const anik = new post({
+ const anik = new gost({
     pName: 'Anik Mostofa',
     pPic:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDgTNKTeE985pM29w_MVlLv6Q6zXuK8qHKq4O0pcB_aWH4JbQV',
 
@@ -48,7 +44,7 @@ const asif = new post({
 
 
   });
-  const ovi = new post({
+  const ovi = new gost({
      pName: 'Ishtique Ovi',
      pPic:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDgTNKTeE985pM29w_MVlLv6Q6zXuK8qHKq4O0pcB_aWH4JbQV',
 
@@ -63,7 +59,7 @@ const asif = new post({
 
 
    });
-   const shekha = new post({
+   const shekha = new gost({
       pName: 'Shekha Maha Hamid Vai',
       pPic:'https://www.clipartkey.com/mpngs/m/266-2665108_female-profile-users-png-icon-free-download-woman.png',
 
@@ -71,14 +67,14 @@ const asif = new post({
 
       link:'https://image.shutterstock.com/image-photo/view-famous-pic-du-midi-260nw-1390800023.jpg',
       comment:{s1:'amar khudha lagche'},
-      share:18,
-      like:43
+      share:189999,
+      like:777
 
 
 
 
     });
-    const pavel = new post({
+    const pavel = new gost({
        pName: 'Mahmudul islam',
        pPic:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDgTNKTeE985pM29w_MVlLv6Q6zXuK8qHKq4O0pcB_aWH4JbQV',
 
@@ -90,30 +86,69 @@ const asif = new post({
        like:19
 
 
-
-
      });
-
-asif.save().then(() => console.log('yes its work'));
-anik.save().then(() => console.log('yes its work'));
-ovi.save().then(() => console.log('yes its work'));
-shekha.save().then(() => console.log('yes its work'));
-pavel.save().then(() => console.log('yes its work'));
-
-
-
+//
+// asif.save().then(() => console.log('yes its work'));
+// anik.save().then(() => console.log('yes its work'));
+// ovi.save().then(() => console.log('yes its work'));
+// shekha.save().then(() => console.log('yes its work'));
+// pavel.save().then(() => console.log('yes its work'));
+// //
 
 
-function bongobdRead(){
-  post.find(function(err, data){
+
+ var rawDocuments = [asif, anik,ovi,shekha,pavel];
+
+
+
+// // console.log(rawDocuments);
+//
+// gost.insertMany(rawDocuments).then(function(mongoosDocuments) {
+//
+//     })
+//     .catch(function(err) {
+//
+//     });
+
+
+
+
+// function bongobdRead(){
+//   gost.find(function(err, data){
+//     if(err){
+//     console.log("Its Error");
+//     }
+//     return data;
+//   })
+//
+// }
+// console.log(rawDocuments);
+// rawDocuments[4].updateOne({_id :("5e5785239d72c429470a347b")},{pName:"M. Islam"},function(err,log){
+// console.log("Number of Records Effected"+log);
+// });
+
+
+
+
+// rawDocuments[0].updateOne({pName:"Salman"},function(err,log){
+//   // rawDocuments.save().then(() => console.log('yes its work'));
+// console.log(rawDocuments[0]);
+// console.log("Number of Records Effected"+log);
+// });
+//shekha.save();
+// rawDocuments.findByIdAndUpdate("5e579e7bd231a529cb74b652",
+//
+// {pName:"Akib"},function(err,data){if(!err) console.log(data);
+// }});
+
+
+function bongobdRead(asif){
+  gost.find(function(err, data){
     if(err){
     console.log("Its Error");
     }
-    return data;
+    return asif;
   })
 
 }
-
-asif.update({pName:"Alex"},function(err,log){
-console.log("Number of Records Effected"+log);
-});
+console.log(asif,anik,ovi,shekha,pavel,);

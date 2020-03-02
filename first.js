@@ -3,9 +3,15 @@ mongoose.connect('mongodb://localhost:27017/Uni_talks', {useNewUrlParser: true, 
 
 const gost = mongoose.model('gost', {
 
-  pName:String,
+  pName:{
+    type:String,
+    require: true
+  },
   pPic:String,
-  caption: String,
+  caption: {
+    type:String,
+    require:true,
+  },
   link: String,
   comment: Object,
   share:Number,
@@ -87,14 +93,6 @@ const asif = new gost({
 
 
      });
-//
-// asif.save().then(() => console.log('yes its work'));
-// anik.save().then(() => console.log('yes its work'));
-// ovi.save().then(() => console.log('yes its work'));
-// shekha.save().then(() => console.log('yes its work'));
-// pavel.save().then(() => console.log('yes its work'));
-// //
-
 
 
  var rawDocuments = [asif, anik,ovi,shekha,pavel];
@@ -109,7 +107,6 @@ const asif = new gost({
 //     .catch(function(err) {
 //
 //     });
-
 
 
 
@@ -128,8 +125,6 @@ const asif = new gost({
 // });
 
 
-
-
 // rawDocuments[0].updateOne({pName:"Salman"},function(err,log){
 //   // rawDocuments.save().then(() => console.log('yes its work'));
 // console.log(rawDocuments[0]);
@@ -141,7 +136,7 @@ const asif = new gost({
 // {pName:"Akib"},function(err,data){if(!err) console.log(data);
 // }});
 
-
+//
  async function bongobdRead(data){
   var x;
   x = await gost.find(function(err, data){
@@ -154,26 +149,59 @@ const asif = new gost({
   }).then(function (doc) {
   return doc;
 });
-// var z;
-//  console.log(z);
-// console.log(x);
-   return x;
-
-
-
+   return x
 }
 
 async function xyz(){
 
-
-
-
 var y= await bongobdRead();
-console.log(y);
+ console.log(y);
+}
+
+//
+ xyz();
+//
 
 
+var x='pName';
+xyz(pName)
 
+function xyz(x){
+var q = gost.where(`${x}`: 'Ishtique Ovi' );
+// q.update({ $set: { `${x}`: 'rrr' }}).exec().then(() => console.log(q));
+// console.log("This is q");
+// console.log(q);
 
 }
 
-xyz();
+
+
+// async function bongobdupadate(data){
+//   var q;
+//   q = await gost.where({pName: pavel});
+//   q=update.({$set: {pName: 'PPP'}}).update();
+//
+//
+//   // (function (err, data)
+//   {
+//     if(err){
+//     console.log("Its Error");
+//     }
+//     //console.log(data)
+//     data;
+//
+//   }).then(function (doc) {
+//   return doc;
+// });
+//    return q
+// }
+//
+// async function xy(){
+//
+// var z= await bongobdupdate();
+// console.log(z);
+//
+// }
+//
+//
+// xy();
